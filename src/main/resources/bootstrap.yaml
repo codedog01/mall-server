@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: mall-server
+---
+spring:
+  profiles: local
+  cloud:
+    nacos:
+      config:
+        server-addr: 1.15.184.191:8848
+        namespace: 1956969c-5717-4c01-9702-f7250c34ab9f
+        group: local
+        file-extension: yaml
+---
+spring:
+  profiles: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 1.15.184.191:8848
+        namespace: 1956969c-5717-4c01-9702-f7250c34ab9f
+        group: dev
+        file-extension: yaml
