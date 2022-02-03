@@ -1,7 +1,9 @@
 package com.syh.mall.service;
 
+import com.syh.mall.dto.UserDTO;
 import com.syh.mall.pojo.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import vo.UserVO;
 
 /**
  * <p>
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IUserService extends IService<User> {
 
+    UserVO login(UserDTO userDTO);
 }

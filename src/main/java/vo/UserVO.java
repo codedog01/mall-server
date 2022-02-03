@@ -9,11 +9,10 @@ import java.time.LocalDateTime;
 
 /**
  * <p>description goes here</p>
- *
  * @date 2022/2/3
  */
 @Data
-public class UserDTO {
+public class UserVO {
     private Long id;
 
     @ApiModelProperty(value = "第三方appid")

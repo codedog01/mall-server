@@ -1,6 +1,8 @@
 spring:
   application:
     name: mall-server
+  artemis:
+    port: 8989
 ---
 spring:
   profiles: local

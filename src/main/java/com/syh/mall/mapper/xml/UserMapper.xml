@@ -21,4 +21,8 @@
         app_id, open_id, state, nick_name, mobile_phone, update_time, avatar, sell_num
     </sql>
 
+    <select id="selectByOpenId" parameterType="String" resultType="User">
+        select * from user where open_id =#{openId}
+    </select>
+
 </mapper>
