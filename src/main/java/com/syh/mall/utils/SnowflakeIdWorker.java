@@ -8,7 +8,6 @@ import java.net.Inet4Address;
 import java.net.UnknownHostException;
 
 /**
- * @Author: LengAo
  * @Date: 2021/08/31/17:44
  * @Description: 雪花算法生成id
  */

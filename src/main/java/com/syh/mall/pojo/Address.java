@@ -14,7 +14,6 @@ import java.io.Serializable;
  *
  * </p>
  *
- * @author ${author}
  * @since 2022-02-03
  */
 @Data

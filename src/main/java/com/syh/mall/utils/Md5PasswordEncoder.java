@@ -4,7 +4,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @author LengAo
  * @date 2021/11/3 11:00
  */
 public class Md5PasswordEncoder {

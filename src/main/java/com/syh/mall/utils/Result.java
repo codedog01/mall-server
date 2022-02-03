@@ -4,7 +4,6 @@ package com.syh.mall.utils;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * @Author: LengAo
  * @Date: 2021/08/31/14:09
  */
 public class Result<R> {

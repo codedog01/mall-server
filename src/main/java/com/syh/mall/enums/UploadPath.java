@@ -3,7 +3,6 @@ package com.syh.mall.enums;
 /**
  * <p>description goes here</p>
  *
- * @author 冷澳
  * @date 2021/12/26
  */
 public enum UploadPath {

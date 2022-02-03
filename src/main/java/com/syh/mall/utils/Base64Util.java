@@ -11,7 +11,6 @@ import java.util.Base64;
 /**
  * <p>description goes here</p>
  *
- * @author 冷澳
  * @date 2021/12/26
  */
 public class Base64Util {

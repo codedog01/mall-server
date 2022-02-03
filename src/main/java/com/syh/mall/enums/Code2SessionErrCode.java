@@ -1,7 +1,6 @@
 package com.syh.mall.enums;
 
 /**
- * @author LengAo
  * @date 2021/10/17 12:39
  */
 public enum Code2SessionErrCode {

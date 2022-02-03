@@ -3,7 +3,6 @@ package com.syh.mall.enums;
 import com.baomidou.mybatisplus.annotation.EnumValue;
 
 /**
- * @author LengAo
  * @date 2021/10/20 9:25
  */
 public class UserLabelEnum {

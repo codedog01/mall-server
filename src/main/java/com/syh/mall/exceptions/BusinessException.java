@@ -7,7 +7,6 @@ import lombok.Setter;
 import java.util.Map;
 
 /**
- * @author LengAo
  * @since 2021-10-20
  *       自定义业务异常
  */

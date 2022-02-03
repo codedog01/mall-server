@@ -1,7 +1,6 @@
 package com.syh.mall.enums;
 
 /**
- * @author LengAo
  * @since 2021-10-20
  */
 public enum ErrorCode {

@@ -18,7 +18,6 @@ import java.time.LocalDateTime;
  * 用户表
  * </p>
  *
- * @author ${author}
  * @since 2022-02-03
  */
 @Data

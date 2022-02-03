@@ -12,7 +12,6 @@ import java.io.ObjectOutputStream;
 import java.security.KeyPair;
 
 /**
- * @author LengAo
  * @date 2021/11/3 11:00
  */
 public class RSAUtil {

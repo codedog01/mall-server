@@ -9,7 +9,6 @@ import java.io.IOException;
 /**
  * <p>description goes here</p>
  *
- * @author 冷澳
  * @date 2021/12/7
  */
 public class LongToStringSerializer extends JsonSerializer<Long> {

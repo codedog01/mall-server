@@ -17,7 +17,6 @@ import java.math.BigDecimal;
  *
  * </p>
  *
- * @author ${author}
  * @since 2022-02-03
  */
 @Data

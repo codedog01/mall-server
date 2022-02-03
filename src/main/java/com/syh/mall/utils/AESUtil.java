@@ -7,7 +7,6 @@ import java.security.MessageDigest;
 import java.util.Base64;
 
 /**
- * @author LengAo
  * @date 2021/11/3 11:00
  */
 public class AESUtil {

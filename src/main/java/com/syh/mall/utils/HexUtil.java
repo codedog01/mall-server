@@ -1,7 +1,6 @@
 package com.syh.mall.utils;
 
 /**
- * @Author: LengAo
  * @Date: 2021/08/31/14:09
  */
 public class HexUtil {

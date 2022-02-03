@@ -7,7 +7,6 @@ import java.io.*;
 /**
  * <p>description goes here</p>
  *
- * @author 冷澳
  * @date 2022/1/2
  */
 public class Base64Decoder implements MultipartFile {
