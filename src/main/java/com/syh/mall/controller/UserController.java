@@ -34,9 +34,9 @@ public class UserController {
     @Autowired
     IUserService userService;
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     @ApiOperation("登录")
-    public Result<UserVO> login(@RequestBody @Validated String code) {
+    public Result<UserVO> login(String code) {
         System.out.println("UserController.login");
         String url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + appId + "&secret=" + secret + "&grant_type=authorization_code&js_code=" + code;
         /*发送请求获取openid等信息*/
