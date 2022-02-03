@@ -13,8 +13,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import vo.UserVO;
 
 /**
@@ -36,8 +38,7 @@ public class UserController {
 
     @GetMapping("/login")
     @ApiOperation("登录")
-    public Result<UserVO> login(String code) {
-        System.out.println("UserController.login");
+    public Result<UserVO> login(@RequestParam("code") String code) {
         String url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + appId + "&secret=" + secret + "&grant_type=authorization_code&js_code=" + code;
         /*发送请求获取openid等信息*/
         Code2SessionDTO code2SessionDTO = JSON.parseObject(HttpUtil.createGet(url).execute().body(), Code2SessionDTO.class);

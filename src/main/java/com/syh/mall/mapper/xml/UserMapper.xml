@@ -21,7 +21,7 @@
         app_id, open_id, state, nick_name, mobile_phone, update_time, avatar, sell_num
     </sql>
 
-    <select id="selectByOpenId" parameterType="String" resultType="User">
+    <select id="selectByOpenId" parameterType="String" resultType="com.syh.mall.pojo.User">
         select * from user where open_id =#{openId}
     </select>
 
