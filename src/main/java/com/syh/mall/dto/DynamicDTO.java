@@ -1,0 +1,36 @@
+package com.syh.mall.dto;
+
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import java.time.LocalDateTime;
+
+/**
+ * <p>description goes here</p>
+ *
+ * @date 2022/2/3
+ */
+@Data
+public class DynamicDTO {
+    private Long id;
+
+    @ApiModelProperty(value = "openId")
+    private String openId;
+
+    @ApiModelProperty(value = "头像")
+    private String avatar;
+
+    @ApiModelProperty(value = "用户名")
+    private String userName;
+
+    @ApiModelProperty(value = "标题")
+    private String title;
+
+    @ApiModelProperty(value = "打卡内容")
+    private String content;
+
+    @ApiModelProperty(value = "创建时间")
+    private LocalDateTime createTime;
+}
