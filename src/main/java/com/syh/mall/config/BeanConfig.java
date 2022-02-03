@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author LengAo
  * @date 2021/10/20 8:36
  */
 @Configuration

@@ -5,7 +5,6 @@ import com.syh.mall.utils.SnowflakeIdWorker;
 import org.springframework.stereotype.Component;
 
 /**
- * @author LengAo
  * @date 2021/10/20 8:44
  */
 @Component
