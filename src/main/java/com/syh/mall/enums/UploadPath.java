@@ -14,7 +14,7 @@ public enum UploadPath {
     /**
      * 头像上传路径
      */
-    DYNAMIC_IMG_UPLOAD_PATH("dynamic/");
+    GOODS_IMG_UPLOAD_PATH("goods/");
 
 
     private final String path;

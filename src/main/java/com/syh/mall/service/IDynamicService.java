@@ -1,7 +1,11 @@
 package com.syh.mall.service;
 
+import com.syh.mall.dto.DynamicDTO;
 import com.syh.mall.pojo.Dynamic;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.syh.mall.vo.DynamicVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IDynamicService extends IService<Dynamic> {
 
+    void addDynamic(DynamicDTO dynamicDTO);
+
+    List<DynamicVO> selectAll(DynamicDTO dynamicDTO);
 }

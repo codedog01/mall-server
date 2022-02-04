@@ -48,6 +48,9 @@ public class Goods implements Serializable {
     @ApiModelProperty(value = "类型")
     private String type;
 
+    @ApiModelProperty(value = "数量")
+    private Integer num;
+
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private String updateTime;
 

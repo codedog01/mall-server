@@ -85,7 +85,7 @@ public class AliOSSUtils {
 
     public String uploadDynamicImg(String fileBase64) {
         MultipartFile multipartFile = Base64Util.base64ToMultipart(fileBase64);
-        return uploadFile(multipartFile, UploadPath.DYNAMIC_IMG_UPLOAD_PATH.getPath());
+        return uploadFile(multipartFile, UploadPath.GOODS_IMG_UPLOAD_PATH.getPath());
     }
 
 

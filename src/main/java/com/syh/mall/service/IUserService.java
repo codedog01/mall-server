@@ -3,7 +3,7 @@ package com.syh.mall.service;
 import com.syh.mall.dto.UserDTO;
 import com.syh.mall.pojo.User;
 import com.baomidou.mybatisplus.extension.service.IService;
-import vo.UserVO;
+import com.syh.mall.vo.UserVO;
 
 /**
  * <p>

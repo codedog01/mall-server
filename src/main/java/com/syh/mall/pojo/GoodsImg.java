@@ -30,7 +30,7 @@ public class GoodsImg implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "动态Id")
+    @ApiModelProperty(value = "商品Id")
     private Long goodsId;
 
     @ApiModelProperty(value = "图片地址")

@@ -1,7 +1,11 @@
 package com.syh.mall.service;
 
+import com.syh.mall.dto.GoodsDTO;
 import com.syh.mall.pojo.Goods;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.syh.mall.vo.CommodityVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IGoodsService extends IService<Goods> {
 
+    List<CommodityVO> selectAll();
+
+    void addGoods(GoodsDTO goodsDTO);
 }

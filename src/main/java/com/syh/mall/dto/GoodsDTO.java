@@ -6,6 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>description goes here</p>
@@ -33,6 +35,11 @@ public class GoodsDTO {
 
     @ApiModelProperty(value = "类型")
     private String type;
+
+    @ApiModelProperty(value = "数量")
+    private Integer num;
+
+    List<String> imgList;
 
     private String updateTime;
 }
