@@ -13,10 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.syh.mall.vo.UserVO;
 
 /**
@@ -36,9 +33,9 @@ public class UserController {
     @Autowired
     IUserService userService;
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     @ApiOperation("登录")
-    public Result<UserVO> login(@RequestParam("code") String code) {
+    public Result<UserVO> login(@RequestBody String code) {
         String url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + appId + "&secret=" + secret + "&grant_type=authorization_code&js_code=" + code;
         /*发送请求获取openid等信息*/
         Code2SessionDTO code2SessionDTO = JSON.parseObject(HttpUtil.createGet(url).execute().body(), Code2SessionDTO.class);
@@ -47,7 +44,7 @@ public class UserController {
             UserDTO userDTO = new UserDTO();
             BeanUtils.copyProperties(code2SessionDTO, userDTO);
             userDTO.setCode(code);
-            return Result.ofSuccess(userService.login(userDTO));
+            return Result.ofSuccess(userService.login(userDTO.getOpenId()));
         }
         /*如果失败就获取到对应的失败信息并返回*/
         Code2SessionErrCode code2SessionErrCode = Code2SessionErrCode.getCode2SessionErrCode(code2SessionDTO.getErrCode());

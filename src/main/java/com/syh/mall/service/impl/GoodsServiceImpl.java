@@ -68,7 +68,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
             GoodsImg goodsImg = new GoodsImg();
             goodsImg.setGoodsId(goods.getId());
             /*把MinIO url存到数据库*/
-            String url = aliOSSUtils.uploadDynamicImg(img);
+            String url = aliOSSUtils.uploadDynamicImg(img.getImgBase64());
             goodsImg.setImgUrl(url);
             goodsImgMapper.insert(goodsImg);
         });

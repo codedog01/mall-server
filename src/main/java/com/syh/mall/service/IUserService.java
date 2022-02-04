@@ -15,5 +15,5 @@ import com.syh.mall.vo.UserVO;
  */
 public interface IUserService extends IService<User> {
 
-    UserVO login(UserDTO userDTO);
+    UserVO login(String openId);
 }

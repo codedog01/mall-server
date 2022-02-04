@@ -40,7 +40,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         /*点赞量*/
         setFieldValByName("likes", 0, metaObject);
         /*状态*/
-        setFieldValByName("state", 1, metaObject);
+        setFieldValByName("state", true, metaObject);
         /*flag状态*/
         setFieldValByName("stage", 1, metaObject);
         /*个性签命*/

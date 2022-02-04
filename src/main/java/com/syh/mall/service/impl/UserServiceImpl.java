@@ -1,7 +1,6 @@
 package com.syh.mall.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.syh.mall.dto.UserDTO;
 import com.syh.mall.pojo.User;
 import com.syh.mall.mapper.UserMapper;
 import com.syh.mall.service.IUserService;
@@ -24,17 +23,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     UserMapper userMapper;
     
     @Override
-    public UserVO login(UserDTO userDTO) {
-        String openId = userDTO.getOpenId();
+    public UserVO login(String openId) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("open_id", openId);
         User user = userMapper.selectOne(queryWrapper);
         UserVO userVO = new UserVO();
         if (null == user) {
             user = new User();
-            BeanUtils.copyProperties(userDTO, user);
+            user.setOpenId(openId);
             userMapper.insert(user);
-
         }
         BeanUtils.copyProperties(user, userVO);
         return userVO;

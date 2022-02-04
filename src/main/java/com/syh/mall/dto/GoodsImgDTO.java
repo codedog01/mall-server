@@ -16,18 +16,9 @@ import java.time.LocalDateTime;
 public class GoodsImgDTO {
     private Long id;
 
-    private static final long serialVersionUID = 1L;
-
-    @ApiModelProperty(value = "动态Id")
     private Long goodsId;
 
-    @ApiModelProperty(value = "图片地址")
-    private String imgUrl;
+    private String imgBase64;
 
-    @ApiModelProperty(value = "上传时间")
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime uploadTime;
-
-    @ApiModelProperty(value = "排序")
     private Integer sort;
 }

@@ -1,12 +1,8 @@
 package com.syh.mall.dto;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,7 +24,7 @@ public class GoodsDTO {
     private String name;
 
     @ApiModelProperty(value = "价格")
-    private BigDecimal price;
+    private Double price;
 
     @ApiModelProperty(value = "状态，上架 下架")
     private Boolean status;
@@ -39,7 +35,7 @@ public class GoodsDTO {
     @ApiModelProperty(value = "数量")
     private Integer num;
 
-    List<String> imgList;
+    List<GoodsImgDTO> imgList;
 
     private String updateTime;
 }
