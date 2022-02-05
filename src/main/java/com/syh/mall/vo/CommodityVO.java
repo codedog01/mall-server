@@ -1,5 +1,6 @@
 package com.syh.mall.vo;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -16,7 +17,7 @@ public class CommodityVO {
 
     private Label label;
 
-    private Goods goods;
+    private List<Goods> goods;
 
     @Data
     public static class Label {
@@ -45,5 +46,6 @@ public class CommodityVO {
 
         LocalDateTime updateTime;
 
+        private Integer num;
     }
 }

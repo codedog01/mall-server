@@ -4,14 +4,14 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.syh.mall.pojo.Goods">
-        <result column="id" property="id" />
-        <result column="open_id" property="openId" />
-        <result column="describle" property="describle" />
-        <result column="name" property="name" />
-        <result column="price" property="price" />
-        <result column="status" property="status" />
-        <result column="type" property="type" />
-        <result column="update_time" property="updateTime" />
+        <result column="id" property="id"/>
+        <result column="open_id" property="openId"/>
+        <result column="describle" property="describle"/>
+        <result column="name" property="name"/>
+        <result column="price" property="price"/>
+        <result column="status" property="status"/>
+        <result column="type" property="type"/>
+        <result column="update_time" property="updateTime"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->

@@ -1,10 +1,14 @@
 package com.syh.mall.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.nacos.common.utils.JacksonUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.google.gson.JsonObject;
 import com.syh.mall.dto.GoodsDTO;
 import com.syh.mall.mapper.GoodsImgMapper;
 import com.syh.mall.mapper.GoodsMapper;
+import com.syh.mall.mapper.GoodsTypeMapper;
 import com.syh.mall.pojo.Goods;
 import com.syh.mall.pojo.GoodsImg;
 import com.syh.mall.service.IGoodsService;
@@ -35,27 +39,38 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     GoodsImgMapper goodsImgMapper;
 
     @Autowired
+    GoodsTypeMapper goodsTypeMapper;
+
+    @Autowired
     AliOSSUtils aliOSSUtils;
 
     @Override
     public List<CommodityVO> selectAll() {
-        return goodsMapper.selectList(new QueryWrapper<>()).stream().map(item -> {
+        List<CommodityVO> collect1 = goodsTypeMapper.selectList(new QueryWrapper<>()).stream().map(type -> {
             CommodityVO commodityVO = new CommodityVO();
-            CommodityVO.Goods goods = commodityVO.getGoods();
-            CommodityVO.Label label = commodityVO.getLabel();
+            CommodityVO.Label label = new CommodityVO.Label();
 
-            QueryWrapper<GoodsImg> queryWrapper = new QueryWrapper<>();
-            queryWrapper.eq("goods_id", item.getId());
-            List<String> collect = goodsImgMapper.selectList(queryWrapper).stream().map(GoodsImg::getImgUrl).collect(Collectors.toList());
-            goods.setThumb(collect);
+            label.setName(type.getName());
+            label.setIdx(type.getId());
 
-            label.setName(item.getType());
-            label.setIdx(item.getId());
+            QueryWrapper<Goods> queryWrapper1 = new QueryWrapper<>();
+            queryWrapper1.eq("type", type.getName());
+            List<CommodityVO.Goods> goodsList = goodsMapper.selectList(queryWrapper1).stream().map(item -> {
+                CommodityVO.Goods goods = new CommodityVO.Goods();
+                BeanUtils.copyProperties(item,goods);
+                QueryWrapper<GoodsImg> queryWrapper = new QueryWrapper<>();
+                queryWrapper.eq("goods_id", item.getId());
+                List<String> collect = goodsImgMapper.selectList(queryWrapper).stream().map(GoodsImg::getImgUrl).collect(Collectors.toList());
+                goods.setThumb(collect);
+                return goods;
+            }).collect(Collectors.toList());
 
+            commodityVO.setLabel(label);
+            commodityVO.setGoods(goodsList);
             return commodityVO;
         }).collect(Collectors.toList());
-
-
+        System.out.println(JacksonUtils.toJson(collect1));
+        return collect1;
     }
 
     @Override

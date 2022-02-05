@@ -7,7 +7,7 @@
         <result column="id" property="id" />
         <result column="open_id" property="openId" />
         <result column="avatar" property="avatar" />
-        <result column="user_name" property="userName" />
+        <result column="user_name" property="name" />
         <result column="title" property="title" />
         <result column="content" property="content" />
         <result column="create_time" property="createTime" />
@@ -16,7 +16,7 @@
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id,
-        open_id, avatar, user_name, title, content, create_time
+        open_id, avatar, name, title, content, create_time
     </sql>
 
 </mapper>
