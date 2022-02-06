@@ -1,19 +1,20 @@
 package com.syh.mall.service.impl;
 
-import com.alibaba.fastjson.JSONObject;
 import com.alibaba.nacos.common.utils.JacksonUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.google.gson.JsonObject;
 import com.syh.mall.dto.GoodsDTO;
 import com.syh.mall.mapper.GoodsImgMapper;
 import com.syh.mall.mapper.GoodsMapper;
 import com.syh.mall.mapper.GoodsTypeMapper;
+import com.syh.mall.mapper.UserMapper;
 import com.syh.mall.pojo.Goods;
 import com.syh.mall.pojo.GoodsImg;
+import com.syh.mall.pojo.User;
 import com.syh.mall.service.IGoodsService;
 import com.syh.mall.utils.AliOSSUtils;
 import com.syh.mall.vo.CommodityVO;
+import com.syh.mall.vo.GoodsVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,6 +43,9 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     GoodsTypeMapper goodsTypeMapper;
 
     @Autowired
+    UserMapper userMapper;
+
+    @Autowired
     AliOSSUtils aliOSSUtils;
 
     @Override
@@ -57,7 +61,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
             queryWrapper1.eq("type", type.getName());
             List<CommodityVO.Goods> goodsList = goodsMapper.selectList(queryWrapper1).stream().map(item -> {
                 CommodityVO.Goods goods = new CommodityVO.Goods();
-                BeanUtils.copyProperties(item,goods);
+                BeanUtils.copyProperties(item, goods);
                 QueryWrapper<GoodsImg> queryWrapper = new QueryWrapper<>();
                 queryWrapper.eq("goods_id", item.getId());
                 List<String> collect = goodsImgMapper.selectList(queryWrapper).stream().map(GoodsImg::getImgUrl).collect(Collectors.toList());
@@ -88,5 +92,23 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
             goodsImgMapper.insert(goodsImg);
         });
 
+    }
+
+    @Override
+    public GoodsVO selectOne(String goodsId) {
+        Goods goods = goodsMapper.selectById(goodsId);
+        QueryWrapper<GoodsImg> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("goods_id", goods.getId());
+        List<String> collect = goodsImgMapper.selectList(queryWrapper).stream().map(GoodsImg::getImgUrl).collect(Collectors.toList());
+        GoodsVO goodsVO = new GoodsVO();
+        BeanUtils.copyProperties(goods, goodsVO);
+        goodsVO.setImages(collect);
+
+        QueryWrapper<User> query = new QueryWrapper<>();
+        query.eq("open_id", goods.getOpenId());
+        User user = userMapper.selectOne(query);
+        goodsVO.setAvatar(user.getAvatar());
+        goodsVO.setNickName(user.getNickName());
+        return goodsVO;
     }
 }

@@ -15,4 +15,6 @@ public class LikesVO {
 
     private String openId;
 
+    private Integer num;
+
 }

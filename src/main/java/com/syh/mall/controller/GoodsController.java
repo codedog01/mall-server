@@ -5,6 +5,7 @@ import com.syh.mall.dto.GoodsDTO;
 import com.syh.mall.service.IGoodsService;
 import com.syh.mall.utils.Result;
 import com.syh.mall.vo.CommodityVO;
+import com.syh.mall.vo.GoodsVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,5 +38,9 @@ public class GoodsController {
         return Result.ofSuccess();
     }
 
+    @GetMapping("/selectOne")
+    public Result<GoodsVO> selectOne(String goodsId) {
+        return Result.ofSuccess(goodsService.selectOne(goodsId));
+    }
 }
 

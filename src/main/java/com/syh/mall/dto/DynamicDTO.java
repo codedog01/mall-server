@@ -23,7 +23,7 @@ public class DynamicDTO {
     private String avatar;
 
     @ApiModelProperty(value = "用户名")
-    private String userName;
+    private String name;
 
     @ApiModelProperty(value = "标题")
     private String title;

@@ -7,7 +7,7 @@
         <result column="id" property="id" />
         <result column="open_id" property="openId" />
         <result column="avatar" property="avatar" />
-        <result column="user_name" property="name" />
+        <result column="name" property="name" />
         <result column="title" property="title" />
         <result column="content" property="content" />
         <result column="create_time" property="createTime" />

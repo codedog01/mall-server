@@ -1,5 +1,6 @@
 package com.syh.mall.service;
 
+import com.syh.mall.dto.UserAvatarDTO;
 import com.syh.mall.dto.UserDTO;
 import com.syh.mall.pojo.User;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -15,5 +16,9 @@ import com.syh.mall.vo.UserVO;
  */
 public interface IUserService extends IService<User> {
 
-    UserVO login(String openId);
+    UserVO login(UserDTO userDTO);
+
+    void uploadAvatar(UserAvatarDTO userAvatarDTO);
+
+    UserVO getUserInfo(String openId);
 }

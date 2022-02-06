@@ -17,7 +17,7 @@ public class UserDTO {
     private Long id;
 
     @ApiModelProperty("校验code码")
-    String code;
+    private String code;
 
     @ApiModelProperty(value = "第三方appid")
     private String appId;

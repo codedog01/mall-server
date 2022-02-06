@@ -4,15 +4,15 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.syh.mall.pojo.User">
-        <result column="id" property="id" />
-        <result column="app_id" property="appId" />
-        <result column="open_id" property="openId" />
-        <result column="state" property="state" />
-        <result column="nick_name" property="nickName" />
-        <result column="mobile_phone" property="mobilePhone" />
-        <result column="update_time" property="updateTime" />
-        <result column="avatar" property="avatar" />
-        <result column="sell_num" property="sellNum" />
+        <result column="id" property="id"/>
+        <result column="app_id" property="appId"/>
+        <result column="open_id" property="openId"/>
+        <result column="state" property="state"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="mobile_phone" property="mobilePhone"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="avatar" property="avatar"/>
+        <result column="sell_num" property="sellNum"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -22,7 +22,9 @@
     </sql>
 
     <select id="selectByOpenId" parameterType="String" resultType="com.syh.mall.pojo.User">
-        select * from user where open_id =#{openId}
+        select *
+        from user
+        where open_id = #{openId}
     </select>
 
 </mapper>

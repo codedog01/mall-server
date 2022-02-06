@@ -31,5 +31,8 @@ public class Likes implements Serializable {
 
     private String openId;
 
+    private Integer num = 1;
+
+    private Boolean isDeal = false;
 
 }

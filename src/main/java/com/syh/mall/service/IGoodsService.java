@@ -4,6 +4,7 @@ import com.syh.mall.dto.GoodsDTO;
 import com.syh.mall.pojo.Goods;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.syh.mall.vo.CommodityVO;
+import com.syh.mall.vo.GoodsVO;
 
 import java.util.List;
 
@@ -20,4 +21,6 @@ public interface IGoodsService extends IService<Goods> {
     List<CommodityVO> selectAll();
 
     void addGoods(GoodsDTO goodsDTO);
+
+    GoodsVO selectOne(String goodsId);
 }
