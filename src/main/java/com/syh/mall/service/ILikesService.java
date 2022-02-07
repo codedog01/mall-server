@@ -27,5 +27,7 @@ public interface ILikesService extends IService<Likes> {
 
     void delDeal(LikesDTO likesDTO);
 
-    void doDeal(String openId);
+    Integer doDeal(String openId);
+
+    Boolean hasDefaultAddr(String openId);
 }

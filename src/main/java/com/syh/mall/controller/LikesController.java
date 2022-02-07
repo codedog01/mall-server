@@ -1,8 +1,10 @@
 package com.syh.mall.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.syh.mall.dto.LikesDTO;
 import com.syh.mall.dto.UserAvatarDTO;
+import com.syh.mall.pojo.Address;
 import com.syh.mall.service.ILikesService;
 import com.syh.mall.utils.Result;
 import com.syh.mall.vo.GoodsVO;
@@ -15,7 +17,7 @@ import java.util.List;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @since 2022-02-03
@@ -61,10 +63,15 @@ public class LikesController {
     }
 
     @GetMapping("/doDeal")
-    @ApiOperation("查询已完成交易的商品")
-    public Result<Object> doDeal(String openId) {
-        likesService.doDeal(openId);
-        return Result.ofSuccess();
+    @ApiOperation("提交购物车")
+    public Result<Integer> doDeal(String openId) {
+        return Result.ofSuccess(likesService.doDeal(openId));
     }
+
+    @GetMapping("/hasDefaultAddr")
+    public Result<Boolean> hasDefaultAddr(String openId){
+        return Result.ofSuccess(likesService.hasDefaultAddr(openId));
+    }
+
 }
 

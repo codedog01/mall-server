@@ -2,12 +2,15 @@ package com.syh.mall.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.syh.mall.dto.AddressDTO;
 import com.syh.mall.mapper.GoodsTypeMapper;
+import com.syh.mall.service.IAddressService;
+import com.syh.mall.utils.Result;
+import com.syh.mall.vo.AddressVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 /**
  * <p>
@@ -21,17 +24,34 @@ import org.springframework.web.bind.annotation.RestController;
 public class AddressController {
 
     @Autowired
-    GoodsTypeMapper goodsTypeMapper;
+    IAddressService addressService;
 
-    @GetMapping("/test")
-    public String test(){
-        return "test";
+    @PostMapping("/addAddress")
+    public Result<Object> addAddress(@RequestBody AddressDTO addressDTO) {
+        addressService.addAddress(addressDTO);
+        return Result.ofSuccess();
     }
 
-    @GetMapping("/test2")
-    public String test2(){
-        goodsTypeMapper.selectList(new QueryWrapper<>());
-        return goodsTypeMapper.selectList(new QueryWrapper<>()).toString();
+    @PostMapping("/updateAddress")
+    public Result<Object> updateAddress(@RequestBody AddressDTO addressDTO) {
+        addressService.updateAddress(addressDTO);
+        return Result.ofSuccess();
+    }
+
+    @GetMapping("/delAddress")
+    public Result<Object> delAddress(Long addressId) {
+        addressService.delAddress(addressId);
+        return Result.ofSuccess();
+    }
+
+    @GetMapping("/selectAllAddr")
+    public Result<List<AddressVO>> selectAllAddr(String openId) {
+        return Result.ofSuccess(addressService.selectAllAddr(openId));
+    }
+
+    @GetMapping("/selectOneAddr")
+    public Result<AddressVO> selectOneAddr(Long addressId) {
+        return Result.ofSuccess(addressService.selectOneAddr(addressId));
     }
 }
 

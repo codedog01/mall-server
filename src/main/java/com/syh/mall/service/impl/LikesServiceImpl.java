@@ -3,9 +3,11 @@ package com.syh.mall.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.syh.mall.dto.LikesDTO;
+import com.syh.mall.mapper.AddressMapper;
 import com.syh.mall.mapper.GoodsImgMapper;
 import com.syh.mall.mapper.GoodsMapper;
 import com.syh.mall.mapper.LikesMapper;
+import com.syh.mall.pojo.Address;
 import com.syh.mall.pojo.Goods;
 import com.syh.mall.pojo.GoodsImg;
 import com.syh.mall.pojo.Likes;
@@ -37,6 +39,9 @@ public class LikesServiceImpl extends ServiceImpl<LikesMapper, Likes> implements
 
     @Autowired
     GoodsImgMapper goodsImgMapper;
+
+    @Autowired
+    AddressMapper addressMapper;
 
     @Override
     public void addLike(LikesDTO likesDTO) {
@@ -88,12 +93,20 @@ public class LikesServiceImpl extends ServiceImpl<LikesMapper, Likes> implements
     }
 
     @Override
-    public void doDeal(String openId) {
+    public Integer doDeal(String openId) {
         QueryWrapper<Likes> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("open_id", openId);
         Likes likes = new Likes();
         likes.setIsDeal(true);
-        likesMapper.update(likes,queryWrapper);
+        return likesMapper.update(likes, queryWrapper);
+    }
+
+    @Override
+    public Boolean hasDefaultAddr(String openId) {
+        QueryWrapper<Address> addressQueryWrapper = new QueryWrapper<>();
+        addressQueryWrapper.eq("open_id", openId).eq("is_default", true);
+        Address address = addressMapper.selectOne(addressQueryWrapper);
+        return null != address;
     }
 
     private List<GoodsVO> getGoodsVOS(QueryWrapper<Likes> queryWrapper) {
