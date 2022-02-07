@@ -95,7 +95,7 @@ public class LikesServiceImpl extends ServiceImpl<LikesMapper, Likes> implements
     @Override
     public Integer doDeal(String openId) {
         QueryWrapper<Likes> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("open_id", openId);
+        queryWrapper.eq("open_id", openId).eq("is_deal", false);
         Likes likes = new Likes();
         likes.setIsDeal(true);
         return likesMapper.update(likes, queryWrapper);

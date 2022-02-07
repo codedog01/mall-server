@@ -9,12 +9,12 @@ public enum UploadPath {
     /**
      * 头像上传路径
      */
-    AVATAR_UPLOAD_PATH("avatar/"),
+    AVATAR_UPLOAD_PATH("syh/avatar/"),
 
     /**
      * 头像上传路径
      */
-    GOODS_IMG_UPLOAD_PATH("goods/");
+    GOODS_IMG_UPLOAD_PATH("syh/goods/");
 
 
     private final String path;
