@@ -36,7 +36,7 @@ public class CommodityVO {
 
         String name;
 
-        BigDecimal price;
+        Double price;
 
         Boolean status;
 
