@@ -39,7 +39,7 @@ public class GoodsVO {
     private String name;
 
     @ApiModelProperty(value = "价格")
-    private BigDecimal price;
+    private Double price;
 
     @ApiModelProperty(value = "状态，上架 下架")
     private Boolean status;
