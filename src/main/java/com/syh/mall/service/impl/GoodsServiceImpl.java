@@ -1,6 +1,5 @@
 package com.syh.mall.service.impl;
 
-import com.alibaba.nacos.common.utils.JacksonUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.syh.mall.dto.GoodsDTO;
@@ -73,7 +72,6 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
             commodityVO.setGoods(goodsList);
             return commodityVO;
         }).collect(Collectors.toList());
-        System.out.println(JacksonUtils.toJson(collect1));
         return collect1;
     }
 
