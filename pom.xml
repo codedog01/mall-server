@@ -223,10 +223,8 @@
         </plugins>
         <resources>
             <resource>
-                <directory>src/main</directory>
+                <directory>src/main/resources</directory>
                 <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.xml</include>
                     <include>**/*.yaml</include>
                 </includes>
                 <filtering>false</filtering>
